@@ -32,7 +32,7 @@ self.addEventListener('activate', (e)=>{
 self.addEventListener('fetch', (e)=>{
    console.log("Cambios...");
     e.respondWith(async function() {
-        const cachedResponse = await caches.match(e.request);
+        const cachedResponse = await caches.match('./index.html');
         if (cachedResponse) return cachedResponse;
         return fetch(e.request);
     }());
